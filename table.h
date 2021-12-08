@@ -46,9 +46,9 @@ int  st_table[][TABLE_COLUMNS] = {
 	/* State 1 */   {1,  1,  1,  2,  3,  2,  2,  2},
 	/* State 2 */   {IS, IS, IS, IS, IS, IS, IS, IS},
 	/* State 3 */   {IS, IS, IS, IS, IS, IS, IS, IS},
-	/* State 4 */   {ES, 4,  4,  7,  5,  5,  5,  5},
+	/* State 4 */   {ES, 4,  4,  7,  5,  ES,  5,  5},
 	/* State 5 */   {IS, IS, IS, IS, IS, IS, IS, IS},
-	/* State 6 */   {ES, 6,  ES, 7,  5,  5,  5,  5},
+	/* State 6 */   {ES, 6,  ES, 7,  5,  ES,  5,  5},
 	/* State 7 */   {8,  7,  7,  8,  8,  8,  8,  8},
 	/* State 8 */   {IS, IS, IS, IS, IS, IS, IS, IS},
 	/* State 9 */   {9,  9,  9,  9,  9,  10, ER, 9},
@@ -84,7 +84,7 @@ Token aa_func02(char* lexeme);
 Token aa_func03(char* lexeme);
 Token aa_func05(char* lexeme);
 Token aa_func08(char* lexeme);
-//Token aa_func10(char* lexeme);
+Token aa_func10(char* lexeme);
 Token aa_func11(char* lexeme);
 
 /* Accepting function (action) callback table (array) definition */
@@ -104,7 +104,7 @@ PTR_AAF aa_table[] = {
 	/* State 7 */  NULL,
 	/* State 8 */  aa_func08,
 	/* State 9 */  NULL,
-	/* State 10 */ NULL, // aa_func10,
+	/* State 10 */ aa_func10,
 	/* State 11 */ aa_func11,
 	/* State 12 */ aa_func11
 
