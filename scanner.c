@@ -486,7 +486,7 @@ Token aa_func03(char lexeme[]) {
         ONLY FIRST VID_LEN - 1 CHARACTERS ARE STORED
         INTO THE VARIABLE ATTRIBUTE ARRAY vid_lex[],
         AND THEN THE # CHARACTER IS APPENDED TO THE NAME.
-        ADD \0 AT THE END TO MAKE A C - type STRING. */
+        \0 AT THE END TO MAKE A C - type STRING. */
 
     Token t;
     if (strlen(lexeme) < VID_LEN) {
@@ -610,6 +610,29 @@ Token aa_func05(char lexeme[]) {
     return t;
 }
 
+Token aa_func10(char lexeme[]) {
+   
+   Token currentToken = { 0 };
+   int i;
+ 
+   if (currentToken.attribute.str_offset > 0) {
+      currentToken.code = STR_T;
+    
+    		for (i = 0; i < strlen(lexeme); i++) {
+	     		if (lexeme[i] == '\n') {
+				      ++line;
+			     } 
+       
+        if ((i == 0 || i == strlen(lexeme) - 1) && lexeme[i] == "\"") {
+			
+        } else {
+          b_addc(str_LTBL, lexeme[i]);
+        }
+		      bufferAddChar(stringLiteralTable, '\0');
+	   }
+	
+	   return currentToken;
+}
 
 /* ACCEPTING FUNCTION FOR THE ERROR TOKEN */
 
